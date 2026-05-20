@@ -39,6 +39,3 @@ bin
 *.user
 *.DS_Store
 **/Makefile
-
-# Temp
-libs/sead

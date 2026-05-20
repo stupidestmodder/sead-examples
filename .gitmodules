@@ -1,0 +1,3 @@
+[submodule "libs/sead"]
+	path = libs/sead
+	url = https://github.com/stupidestmodder/sead.git
