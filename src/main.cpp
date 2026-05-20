@@ -51,11 +51,3 @@ int main()
 
     delete fw;
 }
-
-//? Needed for subsystem entry point (Release builds don't have a console by default)
-#if defined(SEAD_PLATFORM_WINDOWS)
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow)
-{
-    return main();
-}
-#endif // SEAD_PLATFORM_WINDOWS

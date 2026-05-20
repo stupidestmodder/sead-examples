@@ -149,6 +149,9 @@ project "sead-examples"
         symbols "off"
         linktimeoptimization "on"
 
+    filter { "system:windows", "configurations:Release" }
+        entrypoint "mainCRTStartup"
+
 group "Dependencies"
     include "libs/sead"
 group ""
