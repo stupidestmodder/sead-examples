@@ -1,16 +1,16 @@
 -- premake5.lua
 workspace "sead-examples"
     platforms {
-        "SDL_x86",
+        "GLFW_x86",
         "Win_x86",
 
-        "SDL_x86_64",
+        "GLFW_x86_64",
         "Win_x86_64",
 
-        "SDL_ARM32",
+        "GLFW_ARM32",
         "Win_ARM32",
 
-        "SDL_ARM64",
+        "GLFW_ARM64",
         "Win_ARM64",
     }
 
@@ -85,30 +85,39 @@ project "sead-examples"
     filter "system:windows"
         systemversion "latest"
 
+        -- TODO: Remove
+        defines { "SEAD_PLATFORM_WINDOWS" }
+
     filter "system:linux"
         systemversion "latest"
+        
+        -- TODO: Remove
+        defines { "SEAD_PLATFORM_POSIX", "SEAD_PLATFORM_LINUX" }
 
     filter "system:macosx"
         systemversion "11.0"
 
-    filter "platforms:SDL_*"
+        -- TODO: Remove
+        defines { "SEAD_PLATFORM_POSIX", "SEAD_PLATFORM_MACOSX" }
+
+    filter "platforms:GLFW_*"
         defines {
-            "SEAD_PLATFORM_SDL",
+            "SEAD_PLATFORM_GLFW",
             "SEAD_USE_GL",
         }
 
         includedirs {
             "libs/sead/libs/glad/include",
-            "libs/sead/libs/SDL3/repo/include",
+            -- "libs/sead/libs/SDL3/repo/include",
         }
 
         links {
             -- "glad",
-            "SDL3",
+            -- "SDL3",
         }
 
         libdirs {
-            "libs/sead/libs/SDL3/lib",
+            -- "libs/sead/libs/SDL3/lib",
         }
 
     filter "platforms:Win_*"
