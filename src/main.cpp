@@ -4,6 +4,8 @@
 #include <framework/win/seadGameFrameworkWinGL.h>
 #endif // SEAD_PLATFORM
 
+#include <heap/seadExpHeap.h>
+
 #include <RootTask.h>
 
 const u32 cWidth = 1280;
@@ -26,6 +28,12 @@ int main()
     }
 
     sead::Heap* heap = sead::HeapMgr::instance()->getRootHeap(0);
+
+    //* Create heap for other threads
+    {
+        sead::ExpHeap* h = sead::ExpHeap::create(50 * 1024 * 1024, "NonSeadThreadHeap", heap, sead::Heap::HeapDirection::eForward, true);
+        sead::HeapMgr::instance()->setAllocFromNotSeadThreadHeap(h);
+    }
 
     //* Init app framework
     AppFramework* fw;
