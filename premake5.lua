@@ -75,7 +75,7 @@ project "sead-examples"
     }
 
     files {
-        "src/**.cpp",
+        "src/**",
     }
 
     links {
@@ -108,16 +108,12 @@ project "sead-examples"
 
         includedirs {
             "libs/sead/libs/glad/include",
-            -- "libs/sead/libs/SDL3/repo/include",
+            "libs/sead/libs/glfw/include",
         }
 
         links {
             -- "glad",
-            -- "SDL3",
-        }
-
-        libdirs {
-            -- "libs/sead/libs/SDL3/lib",
+            "glfw",
         }
 
     filter "platforms:Win_*"

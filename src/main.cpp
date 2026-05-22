@@ -1,7 +1,7 @@
 #if defined(SEAD_PLATFORM_GLFW)
-#include <framework/glfw/seadConsoleFrameworkGlfw.h>
+#include <framework/glfw/seadGameFrameworkGlfwGL.h>
 #elif defined(SEAD_PLATFORM_WINDOWS)
-#include <framework/win/seadConsoleFrameworkWin.h>
+#include <framework/win/seadGameFrameworkWinGL.h>
 #endif // SEAD_PLATFORM
 
 #include <RootTask.h>
@@ -10,9 +10,9 @@ const u32 cWidth = 1280;
 const u32 cHeight = 720;
 
 #if defined(SEAD_PLATFORM_GLFW)
-using AppFramework = sead::ConsoleFrameworkGlfw;
+using AppFramework = sead::GameFrameworkGlfwGL;
 #elif defined(SEAD_PLATFORM_WINDOWS)
-using AppFramework = sead::ConsoleFrameworkWin;
+using AppFramework = sead::GameFrameworkWinGL;
 #endif // SEAD_PLATFORM
 
 int main()
@@ -30,16 +30,15 @@ int main()
     //* Init app framework
     AppFramework* fw;
     {
-        // AppFramework::CreateArg arg;
-        // arg.window_name = "sead";
-        // arg.width = cWidth;
-        // arg.height = cHeight;
-        // arg.clear_color = sead::Color4f(0.0f, 0.0f, 0.3f, 1.0f);
+        AppFramework::CreateArg arg;
+        arg.window_name = "sead";
+        arg.width = cWidth;
+        arg.height = cHeight;
+        arg.clear_color = sead::Color4f(0.0f, 0.0f, 0.3f, 1.0f);
 
-        // fw = new(heap) AppFramework(arg);
-        fw = new(heap) AppFramework();
+        fw = new(heap) AppFramework(arg);
 
-        // fw->initializeGraphicsSystem(heap, sead::Vector2f(cWidth, cHeight));
+        fw->initializeGraphicsSystem(heap, sead::Vector2f(cWidth, cHeight));
     }
 
     //* Run app framework
