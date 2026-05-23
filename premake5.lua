@@ -46,7 +46,7 @@ workspace "sead-examples"
 
     filter "platforms:*_x86_64"
         architecture "x86_64"
-        -- vectorextensions "AVX2" --? breaks on my VM lol
+        vectorextensions "AVX2"
 
     filter "platforms:*_ARM32"
         architecture "ARM"
