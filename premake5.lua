@@ -90,7 +90,7 @@ project "sead-examples"
 
     filter "system:linux"
         systemversion "latest"
-        
+
         -- TODO: Remove
         defines { "SEAD_PLATFORM_POSIX", "SEAD_PLATFORM_LINUX" }
 
