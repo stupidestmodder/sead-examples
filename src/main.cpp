@@ -49,7 +49,7 @@ int main()
         fw->initializeGraphicsSystem(heap, sead::Vector2f(cWidth, cHeight));
     }
 
-    //* Run app framework
+    //* Run app framework (Start RootTask)
     {
         sead::TaskBase::CreateArg taskArg(&sead::TTaskFactory<RootTask>);
         sead::Framework::RunArg runArg;

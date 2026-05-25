@@ -142,7 +142,7 @@ project "sead-examples"
         kind "ConsoleApp"
         defines { "SEAD_TARGET_DEBUG" }
         runtime "debug"
-        optimize "debug"
+        optimize "off"
         symbols "on"
         linktimeoptimization "off"
 
